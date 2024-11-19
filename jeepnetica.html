@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jeepnetica</title>
+
+	<style>
+		@font-face {
+			font-family: "JeepneticaVF";
+			src: url('font/JeepneticaVF.ttf');
+			font-variation-settings: "BEEP" 0 1000;
+		}
+
+		.title {
+			font-family: Helvetica, sans-serif;
+			font-size: 80px;
+			text-align: center;
+			margin-bottom: 720px; 
+			padding-left: 20px;
+		}
+		
+		.jeepnetica {
+			font-family: "JeepneticaVF", sans-serif;
+			font-variation-settings: "BEEP" 0;
+			transition: font-variation-settings .2s;
+			font-size: 5vw;
+			line-height: 2em;
+			text-align: center;
+			word-break: break-all; /* force line wrapping */
+			margin-bottom: 00px;
+			
+		}
+
+		.jeepnetica span {
+			transition: font-variation-settings .5s, opacity .5s; color .5s;
+		}
+		.hidden {
+			opacity: .25;
+			color:blue;
+			font-variation-settings: "BEEP" 1000;
+		}
+
+		.testtype {
+			
+			font-family: "JeepneticaVF", sans-serif;
+			font-variation-settings: "BEEP" 0;
+			font-size: 5vw;
+			text-align: center;
+			margin-bottom: 720px; 
+			padding-left: 20px;
+
+		}
+
+		:root {
+			--beep: 0;
+			--font-size: 32px;
+			--letter-spacing: 0px;
+		}
+
+		@font-face {
+			font-family: "JeepneticaVF";
+			src: url('font/JeepneticaVF.ttf');
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="title"><strong>Helvetica?</strong></div>
+	<br>
+	<div class="title"><strong>no, Jeepnetica</strong></div>
+
+	<div class="jeepnetica"><span onmouseenter="toggleMyVariableClass(this)">NEW YORK,</span>
+		<span onmouseenter="toggleMyVariableClass(this)"> CUBAO </span>
+		<br>
+		<span onmouseenter="toggleMyVariableClass(this)">BEVERLY HILLS, </span>
+		<br>
+		<span onmouseenter="toggleMyVariableClass(this)">CEBU CITY</span>
+		<br>
+		<span onmouseenter="toggleMyVariableClass(this)">MCARTHUR</span>
+		<br>
+		<span onmouseenter="toggleMyVariableClass(this)">HIGHWAY</span>
+		<span onmouseenter="toggleMyVariableClass(this)"></span>
+		<br>
+
+		<!-- typeable part -->
+		 test zone here
+		 
+		<p class="testtype" id="my-element" 
+		contenteditable="plaintext-only">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</p> <!--how to do all caps only?-->
+
+		<div>
+			<h2>Beep (BEEP)</h2>
+			<label for="BEEP">current value: <span id="current-charge">0</span></label>
+			<input name="beep" type="range" min="0" max="1000" value="0" oninput="setCharge(this.value)">
+		</div>
+		
+	<!-- JavaScript goes in the <script> element -->
+	<script>
+		function toggleMyVariableClass(myElement) {
+			myElement.classList.toggle('hidden');
+		}
+
+		// Element that contains our CSS variables
+		var root = document.querySelector('html');
+
+		// Change the charge CSS variable
+		var currentBeep = document.querySelector('#current-charge');
+		function setBeep(newBeep) {
+			console.log(newBeep);
+			currentBeep.innerText = newBeep;
+			root.style.setProperty('--beep', newBeep);
+		}
+	</script>
+</body>
+</html>
