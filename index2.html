@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jeepnetica</title>
+
+	<style>
+		h1 {
+			font-family: "JeepneticaVF";
+			src: url('font/JeepneticaVF.ttf');
+			font-variation-settings: "BEEP" 0 1000;
+		}
+
+        
+		section {
+			height: 100vh;
+			padding: 0 clamp(4rem, 12vw, 20rem);
+			display: grid;
+			place-content: center;
+
+            p {
+                font-size: clamp(2rem, 5vw, 8rem);
+            }
+        
+            &:nth-of-type(1) {
+                border-bottom: 1px solid black;
+            }
+
+            &:nth-of-type(3) {
+                background-color: yellow;
+            }
+
+            &:nth-of-type(4) {
+                background: rgb(29, 29, 29);
+                color: white;
+            }
+        }
+	</style>
+    
+</head>
+<body>
+	<section>
+        <h1> Helvetica?</h1>
+    </section>
+    <section>
+        <p class="reveal-type">no, Jeepnetica</p>
+    </section>
+    <section>
+        <p class="reveal-type">Jeepnetica is a display typeface that grows out of Helvetica, the pinnacle of modernism and a the typeface used for the Jeep logo.</p>
+    </section>
+    <section>
+        <p class="reveal-type">Test here</p>
+    </section>
+
+
+	<!-- JavaScript goes in the <script> element -->
+	<script>
+		function toggleMyVariableClass(myElement) {
+			myElement.classList.toggle('hidden');
+		}
+
+		// Element that contains our CSS variables
+		var root = document.querySelector('html');
+
+		// Change the charge CSS variable
+		var currentBeep = document.querySelector('#current-charge');
+		function setBeep(newBeep) {
+			console.log(newBeep);
+			currentBeep.innerText = newBeep;
+			root.style.setProperty('--beep', newBeep);
+		}
+	</script>
+</body>
+</html>

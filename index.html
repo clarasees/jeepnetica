@@ -12,44 +12,9 @@
 			font-variation-settings: "BEEP" 0 1000;
 		}
 
-		.title {
-			font-family: Helvetica, sans-serif;
-			font-size: 80px;
-			text-align: center;
-			margin-bottom: 720px; 
-			padding-left: 20px;
-		}
-		
-		.jeepnetica {
-			font-family: "JeepneticaVF", sans-serif;
-			font-variation-settings: "BEEP" 0;
-			transition: font-variation-settings .2s;
-			font-size: 5vw;
-			line-height: 2em;
-			text-align: center;
-			word-break: break-all; /* force line wrapping */
-			margin-bottom: 00px;
-			
-		}
-
-		.jeepnetica span {
-			transition: font-variation-settings .5s, opacity .5s; color .5s;
-		}
-		.hidden {
-			opacity: .25;
-			color:blue;
-			font-variation-settings: "BEEP" 1000;
-		}
-
-		.testtype {
-			
-			font-family: "JeepneticaVF", sans-serif;
-			font-variation-settings: "BEEP" 0;
-			font-size: 5vw;
-			text-align: center;
-			margin-bottom: 720px; 
-			padding-left: 20px;
-
+		@font-face {
+			font-family: "JeepneticaVF";
+			src: url('font/JeepneticaVF.ttf');
 		}
 
 		:root {
@@ -58,20 +23,153 @@
 			--letter-spacing: 0px;
 		}
 
-		@font-face {
-			font-family: "JeepneticaVF";
-			src: url('font/JeepneticaVF.ttf');
+		body {
+			margin: 0;
+			padding: 0;
 		}
 
+		.title {
+			font-family: Helvetica, sans-serif;
+			font-size: 80px;
+			text-align: center;
+			padding-left: 20px;
+		}
+		
+		.jeepnetica {
+			height: 100vh;
+			padding: 0 clamp(4rem, 12vw, 20rem);
+			
+			place-content: center;
+			font-family: "JeepneticaVF", sans-serif;
+			font-variation-settings: "BEEP" 0;
+			transition: font-variation-settings .2s;
+			font-size: 3vw;
+			line-height: 2em;
+			text-align: center;
+			word-break: break-all; /* force line wrapping */
+			
+		}
+
+		.jeepnetica span {
+			transition: font-variation-settings .5s, opacity .5s; color .5s;
+		}
+		.hidden {
+			color:blue;
+			font-variation-settings: "BEEP" 1000;
+		}
+
+		.fixed {
+			font-size: 60px;
+			font-family: "JeepneticaVF", sans-serif;
+			position: fixed;
+			color: black;
+		}
+
+		#top {
+			top: 30px;
+			left: 30px;
+		}
+
+		#bottom {
+			bottom: 30px;
+			right: 30px;
+		}
+
+		img {
+			max-width: 100%; 
+			height: auto;
+			mix-blend-mode: multiply;
+			opacity: 0.3;
+			top: 90%;
+		}
+
+	
+
+		section {
+			height: 100vh;
+			padding: 0 clamp(4rem, 12vw, 20rem);
+			display: grid;
+			place-content: center;
+		}
+		#current-beep {
+			display: inline-block;
+			width: 200px;
+		}
+
+		.bio, .test {
+			background-color: yellow;
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;			
+		}
+
+		.bio h {
+			font-size: 38px;
+			text-align: center;
+			padding: 3rem;
+			font-family: Helvetica, sans-serif;
+			font-size: 80px;
+		}
+
+		.bio p {
+			font-size: 38px;
+			text-align: center;
+			padding: 8rem;
+			font-family: Helvetica, sans-serif;
+			font-size: 40px;
+		}
+
+		.test {
+			background-color: rgb(130, 130, 130);
+			color: white;
+		}
+
+		.type {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}	
+
+		.testtype {
+
+			font-family: "JeepneticaVF", sans-serif;
+			font-variation-settings: "BEEP" var(--beep);
+			font-size: 6vw;
+			text-align: center;			
+			line-height: 2em;
+			width: 80%;
+			margin: 0;
+			padding: 0;
+
+		}
+		.test p {
+			font-size: 60px;
+		}
+
+		.label-class {
+			font-family: "JeepneticaVF", sans-serif; /* Change to the desired font */
+			font-size: 24px; /* Adjust font size as needed */
+			color: rgb(255, 255, 255); /* Adjust text color */
+			text-transform: uppercase; /* Optional: Ensure uppercase text */margin-bottom: 10px; /* Add spacing */
+}
+
+label {
+	align: center;
+	color: blue;
+	font-family: Helvetica, sans-serif;
+}
 	</style>
 </head>
 
 <body>
-	<div class="title"><strong>Helvetica?</strong></div>
-	<br>
-	<div class="title"><strong>no, Jeepnetica</strong></div>
-
-	<div class="jeepnetica"><span onmouseenter="toggleMyVariableClass(this)">NEW YORK,</span>
+	<div class="fixed" id="top">HELVETICA</div>
+	<div class="fixed" id="bottom">NO, JEEPNETICA</div>
+	<div class="jeepnetica">
+		<span onmouseenter="toggleMyVariableClass(this)">NEW YORK,</span><br>
 		<span onmouseenter="toggleMyVariableClass(this)"> CUBAO </span>
 		<br>
 		<span onmouseenter="toggleMyVariableClass(this)">BEVERLY HILLS, </span>
@@ -81,21 +179,26 @@
 		<span onmouseenter="toggleMyVariableClass(this)">MCARTHUR</span>
 		<br>
 		<span onmouseenter="toggleMyVariableClass(this)">HIGHWAY</span>
-		<span onmouseenter="toggleMyVariableClass(this)"></span>
 		<br>
+	</div>
 
-		<!-- typeable part -->
-		 test zone here
-		 
-		<p class="testtype" id="my-element" 
-		contenteditable="plaintext-only">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</p> <!--how to do all caps only?-->
-
-		<div>
-			<h2>Beep (BEEP)</h2>
-			<label for="BEEP">current value: <span id="current-charge">0</span></label>
-			<input name="beep" type="range" min="0" max="1000" value="0" oninput="setCharge(this.value)">
+	<div class="bio">
+			<div style="display: flex; justify-content: center; align-items: center; height: 100vh; position: absolute;  background-blend-mode: multiply;">
+				<img src="photo.jpg" alt="jeepney with happy Filipinos inside">
+			</div>
+		<p> After WWII, American troops left Jeep vehicles in the Philippines. Filipinos altered them locally into vehicles of character. Jeepnetica reflects that same ingenuity, transforming the beloved Helvetica into distinctive letterforms. </p>
+	</div>
+	<div class="test">		
+		<div class="label label-class">Test here</div>
+		<div class="type">
+			<p class="testtype" id="my-element" contenteditable="plaintext-only">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</p> <!--how to do all caps only?-->
 		</div>
-		
+
+		<div class="label label-class">Beep</div>
+			<label for="BEEP"><span id="current-beep"></span></label>
+			<input name="beep" type="range" min="0" max="1000" value="0" oninput="setBeep(this.value)">
+		</div>
+	</div>
 	<!-- JavaScript goes in the <script> element -->
 	<script>
 		function toggleMyVariableClass(myElement) {
@@ -106,7 +209,7 @@
 		var root = document.querySelector('html');
 
 		// Change the charge CSS variable
-		var currentBeep = document.querySelector('#current-charge');
+		var currentBeep = document.querySelector('#current-beep');
 		function setBeep(newBeep) {
 			console.log(newBeep);
 			currentBeep.innerText = newBeep;
