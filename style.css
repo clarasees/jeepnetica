@@ -1,0 +1,169 @@
+/* Ensure mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    .fixed {
+        font-size: 18px; /* Smaller font for fixed text */
+    }
+
+    .jeepnetica {
+        font-size: 6vw; /* Scale font size for mobile screens */
+        padding: 2rem;
+    }
+
+    .bio p {
+        font-size: 12px; /* Reduce font size */
+    }
+
+    .testtype {
+        font-size: 4vw;
+        width: 90%; /* More flexible width for smaller screens */
+        font-size: 24px;z
+    }
+
+    .type {
+        flex-direction: column;
+        align-items: center;
+        font-size: 24px;
+    }
+
+    .label-class {
+        font-size: 18px; /* Smaller label size */
+        margin-bottom: 5px;
+        align: center;
+    }
+
+    .test p {
+        font-size: 36px; /* Adjust font size */
+    }
+
+
+    .test {
+        height: auto; /* Adapt height to content */
+        padding: 1rem;
+    }
+
+}
+
+
+/* STYLESHEET BELOW */
+
+@font-face {
+    font-family: "JeepneticaVF";
+    src: url('font/JeepneticaVF.ttf');
+    font-variation-settings: "BEEP" 0 1000;
+}
+
+:root {
+    --beep: 0;
+    --font-size: 32px;
+    --letter-spacing: 0px;
+}
+
+.jeepnetica {
+    height: 100vh;
+    padding: 0 clamp(4rem, 12vw, 20rem);
+    place-content: center;
+    font-family: "JeepneticaVF", sans-serif;
+    font-variation-settings: "BEEP" 0;
+    transition: font-variation-settings .2s;
+    font-size: 3vw;
+    line-height: 2em;
+    text-align: center;
+    word-break: break-all;
+    /* force line wrapping */
+}
+
+.jeepnetica span {
+    transition: font-variation-settings .5s, opacity .5s, color .5s;
+}
+
+.bio-image-container {
+    align: center;
+    text-align: center; 
+}
+
+.bio-image-container h1 {
+    font-family: "JeepneticaVF";
+    src: url('font/JeepneticaVF.ttf');
+}
+
+.hidden {
+    color: blue;
+    font-variation-settings: "BEEP" 1000;
+}
+
+.fixedgif {
+    position: fixed;
+    width: 20%;
+    top: -20px;
+    right: 20px;
+}
+
+img {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+
+}
+
+#current-beep {
+    display: inline-block;
+    width: 200px;
+}
+
+.bio {
+    background-color: yellow;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.bio p {
+    font-size: 36px;
+    text-align: center;
+    padding: 4rem 8rem 4rem 8rem;
+    font-family: Helvetica, sans-serif;
+    color: black;
+    opacity: 100%;
+}
+
+.test {
+    background-color: rgb(130, 130, 130);
+    color: white;
+}
+
+.type {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testtype {
+
+    font-family: "JeepneticaVF", sans-serif;
+    font-variation-settings: "BEEP" var(--beep);
+    font-size: 6vw;
+    text-align: center;
+    line-height: 2em;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.test p {
+    font-size: 60px;
+}
+
+.label-class {
+    font-family: "JeepneticaVF", sans-serif;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+}
